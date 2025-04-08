@@ -31,12 +31,12 @@ public class FilaDeAtendimento {
         for (int i = 0; i < tamanho - 1; i++) {
             for (int j = i + 1; j < tamanho; j++) {
                 if (prioridades[i] < prioridades[j]) {
-                    // Troca as prioridades
+                  
                     int tempP = prioridades[i];
                     prioridades[i] = prioridades[j];
                     prioridades[j] = tempP;
 
-                    // Troca os nomes no mesmo índice
+                    
                     String tempN = nomes[i];
                     nomes[i] = nomes[j];
                     nomes[j] = tempN;
