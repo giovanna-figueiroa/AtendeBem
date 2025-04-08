@@ -15,14 +15,14 @@ public class SistemaTriagem {
             resposta = sc.nextLine();
 
             if (resposta.equalsIgnoreCase("sim")) {
-                Paciente novoPaciente = new Paciente(sc); // usa o scanner pra entrada de dados
+                Paciente novoPaciente = new Paciente(sc); 
                 int prioridade = enfermeiro.calcularPrioridade(novoPaciente);
 
                 fila.adicionar(novoPaciente.getNomeCompleto(), enfermeiro.getPrioridade());
                 fila.ordenar();
                 fila.exibir();
 
-                // você pode guardar esse paciente num array ou processar direto
+               
             }
 
         } while (resposta.equalsIgnoreCase("sim"));
