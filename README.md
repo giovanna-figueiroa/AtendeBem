@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-    <b>O projeto **AtendeBem** é um sistema de triagem e atendimento que organiza pacientes em uma fila de prioridade com base em critérios clínicos e sociais, como nível de dor, idade e condições especiais (como gestação ou deficiência). O objetivo é garantir que pacientes com maior necessidade sejam atendidos primeiro. O programa permite o cadastro de pacientes, calcula automaticamente a prioridade com base nas informações fornecidas, ordena os pacientes de forma decrescente conforme a urgência e exibe a fila organizada. Ele simula, de forma simples e objetiva, um sistema de atendimento humanizado e eficiente voltado à área da saúde.</b>
+    <b>The AtendeBem project is a triage and care system that organizes patients into a priority queue based on clinical and social criteria, such as pain level, age, and special conditions (such as pregnancy or disability). The goal is to ensure that patients with the greatest need are seen first. The program allows patients to register, automatically calculates priority based on the information provided, sorts patients in descending order according to urgency, and displays the organized queue. It simulates, in a simple and objective way, a humanized and efficient care system focused on the health area.</b>
 </p>
 
 <h2 id="technologies">💻 Technologies</h2>
@@ -19,27 +19,27 @@
 
 Here you list all prerequisites necessary for running your project. For example:
 
-- JDK instalado (verifique com java -version no terminal)
-- Um editor de código ou terminal
+- JDK installed (check with java -version in terminal)
+- A code editor or terminal
 
 <h3>Starting</h3>
 
 How to start the project
 
-1. Abra o terminal (ou prompt de comando).
-2. Navegue até o diretório onde os arquivos do projeto estão salvos. Exemplo:
+1. Open the terminal (or command prompt).
+2. Navigate to the directory where the project files are saved. Example:
 
 ```bash
 cd C:\Users\SeuUsuario\Documentos\AtendeBem\src
 ```
-3. Compile os arquivos .java com o comando:
+3. Compile the .java files with the command:
 ```bash
 javac *.java
 ```
-4. Execute o programa principal com:
+4. Run the main program with:
 ```bash
 java SistemaTriagem
 ```
-5. A aplicação será iniciada no terminal e você poderá interagir com ela inserindo as informações solicitadas.
+5. The application will be launched in the terminal and you will be able to interact with it by entering the requested information.
 
 
