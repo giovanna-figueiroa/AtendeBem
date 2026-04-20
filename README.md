@@ -5,41 +5,72 @@
  <a href="#started">Getting Started</a> 
 </p>
 
+<h1 align="center" style="font-weight: bold;">AtendeBem 💻👩‍⚕️</h1>
+
 <p align="center">
-    <b>The AtendeBem project is a triage and care system that organizes patients into a priority queue based on clinical and social criteria, such as pain level, age, and special conditions (such as pregnancy or disability). The goal is to ensure that patients with the greatest need are seen first. The program allows patients to register, automatically calculates priority based on the information provided, sorts patients in descending order according to urgency, and displays the organized queue. It simulates, in a simple and objective way, a humanized and efficient care system focused on the health area.</b>
+ <a href="#tech">Technologies</a> • 
+ <a href="#started">Getting Started</a> • 
+ <a href="#api">API</a>
 </p>
 
-<h2 id="technologies">💻 Technologies</h2>
+<p align="center">
+    <b>AtendeBem é uma API de triagem de pacientes que organiza uma fila de atendimento por prioridade com base em critérios de urgência médica, dor e condições especiais.</b>
+</p>
 
-- Java
+<h2 id="tech">💻 Technologies</h2>
 
-<h2 id="started">🚀 Getting started</h2>
+- Java 17
+- Spring Boot 3
+- Maven
+- JUnit 5
+
+<h2 id="started">🚀 Getting Started</h2>
 
 <h3>Prerequisites</h3>
 
-Here you list all prerequisites necessary for running your project. For example:
+- Java 17 ou superior instalado
+- Maven instalado
+- Um terminal ou IDE compatível
 
-- JDK installed (check with java -version in terminal)
-- A code editor or terminal
-
-<h3>Starting</h3>
-
-How to start the project
-
-1. Open the terminal (or command prompt).
-2. Navigate to the directory where the project files are saved. Example:
+<h3>Run the application</h3>
 
 ```bash
-cd C:\Users\SeuUsuario\Documentos\AtendeBem\src
+cd "C:\Users\Infra\OneDrive\Documentos\dev life\JAVA\java-poo-curso-em-video\AtendeBem"
+mvn spring-boot:run
 ```
-3. Compile the .java files with the command:
+
+<h3>Build and test</h3>
+
 ```bash
-javac *.java
+mvn clean package
+mvn test
 ```
-4. Run the main program with:
-```bash
-java SistemaTriagem
+
+<h2 id="api">📡 API Endpoints</h2>
+
+- `POST /api/pacientes`
+  - Registra um paciente e calcula sua prioridade.
+  - Exemplo de payload:
+
+```json
+{
+  "fullName": "Maria Silva",
+  "address": "Rua das Flores, 123",
+  "rg": "12345678",
+  "age": 32,
+  "symptoms": "Dor abdominal",
+  "painLevel": 7,
+  "specialCondition": "Gestante"
+}
 ```
-5. The application will be launched in the terminal and you will be able to interact with it by entering the requested information.
+
+- `GET /api/pacientes/fila`
+  - Retorna a fila de pacientes ordenada por prioridade.
+
+<h2 id="notes">📝 Notes</h2>
+
+- O serviço mantém os pacientes em memória para demonstração.
+- A prioridade utiliza regras simples e uma classificação de 1 a 5.
+- O projeto já inclui validação de entrada e tratamento de erros de requisição.
 
 
