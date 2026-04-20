@@ -73,7 +73,7 @@ Request body example:
   "age": 32,
   "symptoms": "Abdominal pain",
   "painLevel": 7,
-  "specialCondition": "GRAVE"
+  "specialCondition": "Deficiente"
 }
 ```
 
@@ -103,7 +103,7 @@ curl -X POST http://localhost:9090/api/pacientes \
     "age": 30,
     "symptoms": "Headache",
     "painLevel": 5,
-    "specialCondition": "NORMAL"
+    "specialCondition": "Gestante"
   }'
 ```
 
@@ -121,13 +121,5 @@ curl -X POST http://localhost:9090/api/pacientes \
 - `src/test/java` - unit test cases
 - `pom.xml` - Maven project configuration
 - `mvnw`, `mvnw.cmd`, and `.mvn/` - Maven wrapper files for portability
-
-## 💡 Public repository notes
-
-This README is intended for any user cloning this repository. It uses the Maven wrapper so users do not need a globally installed Maven version.
-
----
-
-If you want, I can also update the API paths to English route names like `/api/triage` and `/api/triage/queue`.
 
 
