@@ -1,6 +1,6 @@
 # AtendeBem 💻👩‍⚕️
 
-AtendeBem is a patient triage API that organizes a medical queue based on urgency, pain level, and special patient conditions.
+AtendeBem is a patient triage API that organizes a medical queue by priority using basic urgency rules, pain level, and special patient conditions.
 
 ## 💻 Technologies
 
@@ -14,31 +14,47 @@ AtendeBem is a patient triage API that organizes a medical queue based on urgenc
 ### Prerequisites
 
 - Java 17 or higher installed
-- Maven installed or available via full path
-- A terminal or IDE capable of running Maven projects
+- Maven installed, or use the included Maven wrapper
+- A terminal or IDE that supports Java and Maven projects
 
 ### Run the application
 
-From the project root:
+From the project root directory:
 
-```powershell
-cd "C:\Users\Infra\OneDrive\Documentos\dev life\JAVA\java-poo-curso-em-video\AtendeBem"
-& 'C:\Program Files\apache-maven-3.9.15\bin\mvn.cmd' spring-boot:run
+#### Linux / macOS
+
+```bash
+./mvnw spring-boot:run
 ```
 
-If `mvn` is configured in your PATH, you can also use:
+#### Windows
 
 ```powershell
+mvnw.cmd spring-boot:run
+```
+
+If you have Maven installed and available in your PATH, you can also run:
+
+```bash
 mvn spring-boot:run
 ```
 
-The application is configured to run on port `9090`.
+The application starts on port `9090` by default.
 
 ### Build and test
 
+#### Linux / macOS
+
+```bash
+./mvnw clean package
+./mvnw test
+```
+
+#### Windows
+
 ```powershell
-mvn clean package
-mvn test
+mvnw.cmd clean package
+mvnw.cmd test
 ```
 
 ## 📡 API Endpoints
@@ -55,54 +71,63 @@ Request body example:
   "address": "Rua das Flores, 123",
   "rg": "12345678",
   "age": 32,
-  "symptoms": "Stomach pain",
+  "symptoms": "Abdominal pain",
   "painLevel": 7,
   "specialCondition": "GRAVE"
 }
 ```
 
-## 📌 Notes
+### Get the patient queue
 
-- The service stores patients in memory for demonstration purposes.
-- Priority is determined by a simple rule set and special condition categories.
-- The project includes input validation and error handling for request data.
+`GET /api/pacientes/fila`
 
-## 🔧 Available features
+This endpoint returns the current list of registered patients ordered by priority.
 
-- Patient registration endpoint
-- Priority-based queue ordering
-- Request validation using Jakarta Validation
-- Standardized API error responses
-- Unit tests for triage logic
+## 🧪 Example curl requests
 
-## 🧪 Testing with Postman or curl
-
-After starting the app, test the queue endpoint:
+Retrieve the queue:
 
 ```bash
 curl http://localhost:9090/api/pacientes/fila
 ```
 
-To register a patient:
+Register a patient:
 
 ```bash
 curl -X POST http://localhost:9090/api/pacientes \
   -H "Content-Type: application/json" \
-  -d '{"fullName":"João Silva","address":"Rua A, 123","rg":"12345678","age":30,"symptoms":"Headache","painLevel":5,"specialCondition":"NORMAL"}'
+  -d '{
+    "fullName": "João Silva",
+    "address": "Rua A, 123",
+    "rg": "12345678",
+    "age": 30,
+    "symptoms": "Headache",
+    "painLevel": 5,
+    "specialCondition": "NORMAL"
+  }'
 ```
-To visualize the queue
 
-`GET /api/pacientes/fila`
+## 📌 Notes
 
-Returns the current queue of patients ordered by priority.
+- The application stores patients in memory only, so data is reset each time the server restarts.
+- Priority is calculated with simple rules and category weights.
+- Input validation is enforced for required fields and numeric ranges.
+- Error responses are returned in a JSON format.
 
 ## 📁 Project structure
 
 - `src/main/java` - application source code
-- `src/main/resources` - application configuration files
-- `src/test/java` - unit tests
-- `pom.xml` - Maven build configuration
+- `src/main/resources` - configuration and resource files
+- `src/test/java` - unit test cases
+- `pom.xml` - Maven project configuration
+- `mvnw`, `mvnw.cmd`, and `.mvn/` - Maven wrapper files for portability
+
+## 💡 Public repository notes
+
+This README is intended for any user cloning this repository. It uses the Maven wrapper so users do not need a globally installed Maven version.
 
 ---
+
+If you want, I can also update the API paths to English route names like `/api/triage` and `/api/triage/queue`.
 
 
