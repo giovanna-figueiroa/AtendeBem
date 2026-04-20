@@ -83,29 +83,6 @@ Request body example:
 
 This endpoint returns the current list of registered patients ordered by priority.
 
-## 🧪 Example curl requests
-
-Retrieve the queue:
-
-```bash
-curl http://localhost:9090/api/pacientes/fila
-```
-
-Register a patient:
-
-```bash
-curl -X POST http://localhost:9090/api/pacientes \
-  -H "Content-Type: application/json" \
-  -d '{
-    "fullName": "João Silva",
-    "address": "Rua A, 123",
-    "rg": "12345678",
-    "age": 30,
-    "symptoms": "Headache",
-    "painLevel": 5,
-    "specialCondition": "Gestante"
-  }'
-```
 
 ## 📌 Notes
 
