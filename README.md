@@ -1,9 +1,3 @@
-<h1 align="center" style="font-weight: bold;">AtendeBem 💻👩‍⚕️</h1>
-
-<p align="center">
- <a href="#tech">Technologies</a> • 
- <a href="#started">Getting Started</a> 
-</p>
 
 <h1 align="center" style="font-weight: bold;">AtendeBem 💻👩‍⚕️</h1>
 
