@@ -61,12 +61,6 @@ Request body example:
 }
 ```
 
-### Get the patient queue
-
-`GET /api/pacientes/fila`
-
-Returns the current queue of patients ordered by priority.
-
 ## 📌 Notes
 
 - The service stores patients in memory for demonstration purposes.
@@ -96,6 +90,11 @@ curl -X POST http://localhost:9090/api/pacientes \
   -H "Content-Type: application/json" \
   -d '{"fullName":"João Silva","address":"Rua A, 123","rg":"12345678","age":30,"symptoms":"Headache","painLevel":5,"specialCondition":"NORMAL"}'
 ```
+To visualize the queue
+
+`GET /api/pacientes/fila`
+
+Returns the current queue of patients ordered by priority.
 
 ## 📁 Project structure
 
@@ -105,7 +104,5 @@ curl -X POST http://localhost:9090/api/pacientes \
 - `pom.xml` - Maven build configuration
 
 ---
-
-If you want, I can also update the API route paths to English-based URLs like `/api/triage` and `/api/triage/queue`.
 
 
