@@ -1,50 +1,53 @@
+# AtendeBem 💻👩‍⚕️
 
-<h1 align="center" style="font-weight: bold;">AtendeBem 💻👩‍⚕️</h1>
+AtendeBem is a patient triage API that organizes a medical queue based on urgency, pain level, and special patient conditions.
 
-<p align="center">
- <a href="#tech">Technologies</a> • 
- <a href="#started">Getting Started</a> • 
- <a href="#api">API</a>
-</p>
-
-<p align="center">
-    <b>AtendeBem é uma API de triagem de pacientes que organiza uma fila de atendimento por prioridade com base em critérios de urgência médica, dor e condições especiais.</b>
-</p>
-
-<h2 id="tech">💻 Technologies</h2>
+## 💻 Technologies
 
 - Java 17
-- Spring Boot 3
+- Spring Boot 3.2.5
 - Maven
 - JUnit 5
 
-<h2 id="started">🚀 Getting Started</h2>
+## 🚀 Getting Started
 
-<h3>Prerequisites</h3>
+### Prerequisites
 
-- Java 17 ou superior instalado
-- Maven instalado
-- Um terminal ou IDE compatível
+- Java 17 or higher installed
+- Maven installed or available via full path
+- A terminal or IDE capable of running Maven projects
 
-<h3>Run the application</h3>
+### Run the application
 
-```bash
+From the project root:
+
+```powershell
 cd "C:\Users\Infra\OneDrive\Documentos\dev life\JAVA\java-poo-curso-em-video\AtendeBem"
+& 'C:\Program Files\apache-maven-3.9.15\bin\mvn.cmd' spring-boot:run
+```
+
+If `mvn` is configured in your PATH, you can also use:
+
+```powershell
 mvn spring-boot:run
 ```
 
-<h3>Build and test</h3>
+The application is configured to run on port `9090`.
 
-```bash
+### Build and test
+
+```powershell
 mvn clean package
 mvn test
 ```
 
-<h2 id="api">📡 API Endpoints</h2>
+## 📡 API Endpoints
 
-- `POST /api/pacientes`
-  - Registra um paciente e calcula sua prioridade.
-  - Exemplo de payload:
+### Register a patient
+
+`POST /api/pacientes`
+
+Request body example:
 
 ```json
 {
@@ -52,19 +55,57 @@ mvn test
   "address": "Rua das Flores, 123",
   "rg": "12345678",
   "age": 32,
-  "symptoms": "Dor abdominal",
+  "symptoms": "Stomach pain",
   "painLevel": 7,
-  "specialCondition": "Gestante"
+  "specialCondition": "GRAVE"
 }
 ```
 
-- `GET /api/pacientes/fila`
-  - Retorna a fila de pacientes ordenada por prioridade.
+### Get the patient queue
 
-<h2 id="notes">📝 Notes</h2>
+`GET /api/pacientes/fila`
 
-- O serviço mantém os pacientes em memória para demonstração.
-- A prioridade utiliza regras simples e uma classificação de 1 a 5.
-- O projeto já inclui validação de entrada e tratamento de erros de requisição.
+Returns the current queue of patients ordered by priority.
+
+## 📌 Notes
+
+- The service stores patients in memory for demonstration purposes.
+- Priority is determined by a simple rule set and special condition categories.
+- The project includes input validation and error handling for request data.
+
+## 🔧 Available features
+
+- Patient registration endpoint
+- Priority-based queue ordering
+- Request validation using Jakarta Validation
+- Standardized API error responses
+- Unit tests for triage logic
+
+## 🧪 Testing with Postman or curl
+
+After starting the app, test the queue endpoint:
+
+```bash
+curl http://localhost:9090/api/pacientes/fila
+```
+
+To register a patient:
+
+```bash
+curl -X POST http://localhost:9090/api/pacientes \
+  -H "Content-Type: application/json" \
+  -d '{"fullName":"João Silva","address":"Rua A, 123","rg":"12345678","age":30,"symptoms":"Headache","painLevel":5,"specialCondition":"NORMAL"}'
+```
+
+## 📁 Project structure
+
+- `src/main/java` - application source code
+- `src/main/resources` - application configuration files
+- `src/test/java` - unit tests
+- `pom.xml` - Maven build configuration
+
+---
+
+If you want, I can also update the API route paths to English-based URLs like `/api/triage` and `/api/triage/queue`.
 
 
